@@ -8,10 +8,10 @@ var currentData = {};
 router.post('/submit' ,function(req, res) {
   var sensor = req.body.sensor;
   var temp = req.body.temp;
-  var mic = req.body.mic;
+  var sound = req.body.sound;
   var light = req.body.light;
 
-  var ret = {temp: temp, mic: mic, light: light};
+  var ret = {temp: temp, sound: sound, light: light};
   currentData[sensor] = ret;
   console.log("data is now: ", currentData);
   res.json(ret);
