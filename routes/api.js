@@ -13,7 +13,7 @@ router.post('/submit' ,function(req, res) {
 
   var ret = {temp: temp, sound: sound, light: light};
   currentData[sensor] = ret;
-  console.log("data is now: ", currentData);
+  console.log("receiving data from " + sensor, ret);
   res.json(ret);
 });
 
