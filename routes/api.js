@@ -13,15 +13,11 @@ router.post('/submit' ,function(req, res) {
 
   var ret = {temp: temp, mic: mic, light: light};
   currentData[sensor] = ret;
+  console.log("data is now: ", currentData);
   res.json(ret);
 });
 
 router.get('/sensor-data', function(req, res) {
-  var ret = {
-    temp: Math.round(50 * Math.random()),
-    mic: Math.round(120 * Math.random()),
-    light: Math.round(15 * Math.random())
-  };
   res.json(currentData);
 });
 
