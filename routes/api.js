@@ -15,7 +15,11 @@ router.post('/submit' ,function(req, res) {
 
 // TODO: pull from DB
 router.get('/sensor-data', function(req, res) {
-  var ret = {temp: 50 * Math.random(), mic: 120 * Math.random(), light: 15 * Math.random()};
+  var ret = {
+    temp: Math.round(50 * Math.random()),
+    mic: Math.round(120 * Math.random()),
+    light: Math.round(15 * Math.random())
+  };
   res.json(ret);
 });
 
