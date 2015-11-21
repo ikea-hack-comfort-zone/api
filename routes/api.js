@@ -2,7 +2,9 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 
-// TODO: shove into DB
+//hacks on hacks on hacks
+var currentData = {};
+
 router.post('/submit' ,function(req, res) {
   var sensor = req.body.sensor;
   var temp = req.body.temp;
@@ -10,17 +12,17 @@ router.post('/submit' ,function(req, res) {
   var light = req.body.light;
 
   var ret = {temp: temp, mic: mic, light: light};
+  currentData[sensor] = ret;
   res.json(ret);
 });
 
-// TODO: pull from DB
 router.get('/sensor-data', function(req, res) {
   var ret = {
     temp: Math.round(50 * Math.random()),
     mic: Math.round(120 * Math.random()),
     light: Math.round(15 * Math.random())
   };
-  res.json(ret);
+  res.json(currentData);
 });
 
 module.exports = router;
