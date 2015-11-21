@@ -1,2 +1,0 @@
-# DOH
-Dutch Open Hackathon
